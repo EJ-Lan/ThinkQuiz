@@ -1,26 +1,27 @@
-const express = require('express')
-const { createDeck,
+const express = require('express');
+const {
+    createDeck,
     getDecks,
     getDeck,
     deleteDeck,
     updateDeck
-} = require('../controllers/deckController')
+} = require('../controllers/deckController');
 
-const router = express.Router()
+const router = express.Router();
 
 // GET all decks
-router.get('/', getDecks)
+router.get('/', getDecks);
 
 // GET a single deck
-router.get('/:id', getDeck)
+router.get('/:id', getDeck);
 
-// POST a new deck
-router.post('/:id', createDeck)
+// POST a new deck (fixed route)
+router.post('/', createDeck);
 
 // DELETE a deck
-router.delete('/:id', deleteDeck)
+router.delete('/:id', deleteDeck);
 
 // UPDATE a deck
-router.patch('/:id', updateDeck)
+router.patch('/:id', updateDeck);
 
 module.exports = router;
