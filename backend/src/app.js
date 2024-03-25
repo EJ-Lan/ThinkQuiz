@@ -1,6 +1,6 @@
 const express = require('express');
-const cardRoutes = require('./routes/card');
-const deckRoutes = require('./routes/deck');
+const cardRoutes = require('./routes/cardRoutes');
+const deckRoutes = require('./routes/deckRoutes');
 
 const app = express();
 app.use(express.json());
