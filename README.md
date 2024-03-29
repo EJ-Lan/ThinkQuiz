@@ -135,7 +135,7 @@ To get started with ThinkQuiz, follow these steps:
    cd backend
    npm install
    ```
-4. **Install dependencies for the client (React.js)
+4. **Install dependencies for the client (React.js)**
    ```bash
    cd frontend
    npm install
