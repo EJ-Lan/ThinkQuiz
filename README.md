@@ -154,4 +154,4 @@ To get started with ThinkQuiz, follow these steps:
    npm start
    ```
 8. **Access ThinkQuiz in your browser:**
-   * Open (http://localhost:3000)[http://localhost:3000] in your web browser
+   * Open http://localhost:3000[http://localhost:3000] in your web browser
