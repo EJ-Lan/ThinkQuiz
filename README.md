@@ -103,7 +103,18 @@ const cardSchema = new mongoose.Schema({
 ## Frontend
 
 ### Components
-**Under Construction**
+* `Main.js` is the main page
+* `DeckDetails.js` displays the deck
+* `CardDetails.js` displays the card
+* `DeckForm.js` is a form for the decks
+* `CardForm.js` is a form for the cards
+* `Navbar.js` is the navbar
+
+### Hooks
+Under Construction
+
+### Context
+Under Construction
 
 ### Testing Frontend
 1. **Component Tests**: Tests to ensure the components render and behave correctly
