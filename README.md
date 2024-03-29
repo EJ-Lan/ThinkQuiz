@@ -98,7 +98,7 @@ const cardSchema = new mongoose.Schema({
 ```
 
 ### Testing Backend
-**Under Construction**
+1. **Integration Tests**: Tests to ensure the API is functioning properly
 
 ## Frontend
 
@@ -106,7 +106,41 @@ const cardSchema = new mongoose.Schema({
 **Under Construction**
 
 ### Testing Frontend
-**Under Construction**
+1. **Component Tests**: Tests to ensure the components render and behave correctly
 
 ## Getting Started
-**Under Construction**
+To get started with ThinkQuiz, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/EJ-Lan/ThinkQuiz.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd ThinkQuiz
+   ```
+3. **Install dependencies for the server (Node.js/Express.js)
+   ```bash
+   cd backend
+   npm install
+   ```
+4. **Install dependencies for the client (React.js)
+   ```bash
+   cd frontend
+   npm install
+   ```
+5. **Setup MongoDB:**
+   * Ensure MongoDB is installed and running on your system
+   * Set up the MongoDB connection URI and Port number in a `.env` file
+6. **Start the server:**
+   ```bash
+   cd backend
+   npm start
+   ```
+7. **Start the client:**
+   ```bash
+   cd frontend
+   npm start
+   ```
+8. **Access ThinkQuiz in your browser:**
+   * Open (http://localhost:3000)[http://localhost:3000] in your web browser
