@@ -111,10 +111,12 @@ const cardSchema = new mongoose.Schema({
 * `Navbar.js` is the navbar
 
 ### Hooks
-Under Construction
+* `UseDeckContext.js` a hook to use the deck context
+* `UseCardContext.js` a hook to use the card context
 
 ### Context
-Under Construction
+* `DecksContext.js` a context for decks
+* `CardsContext.js` a context for cards
 
 ### Testing Frontend
 1. **Component Tests**: Tests to ensure the components render and behave correctly
