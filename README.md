@@ -18,7 +18,7 @@ Quiz Application For Students
 ### Endpoints
 These are the endpoints from `cardRoutes.js` and `deckRoutes.js` before each deck endpoint must include `/api/decks` and before each card endpoint must include `/api/cards`
 
-```
+```js
 // GET all decks
 router.get('/', getDecks);
 
@@ -35,7 +35,7 @@ router.delete('/:id', deleteDeck);
 router.patch('/:id', updateDeck);
 ```
 
-```
+```js
 // GET all cards
 router.get('/', getCards);
 
@@ -55,7 +55,7 @@ router.patch('/:id', updateCard);
 ### Models
 These are the schema's for the documents in MongoDB from `deckModel.js` and `cardModel.js`
 
-```
+```js
 const deckSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -75,7 +75,7 @@ const deckSchema = new mongoose.Schema({
 });
 ```
 
-```
+```js
 const cardSchema = new mongoose.Schema({
     question: {
         type: String,
