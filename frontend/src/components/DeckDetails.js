@@ -5,17 +5,18 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const DeckDetails = ({ deck }) => {
     const { dispatch } = useDecksContext()
 
-    const handleClick = async () => {
-        const response = await fetch('http://localhost:4000/api/decks/' + deck._id, {
+    const handleClick = () => {
+        fetch('http://localhost:4000/api/decks/' + deck._id, {
             method: 'DELETE'
-        });
-    
-        if (response.ok) {
-            const json = await response.json();
-            dispatch({ type: 'DELETE_DECK', payload: json });
-        } else {
-            console.error('Failed to delete deck: ', await response.text());
-        }
+        })
+        .then(response => {
+            if (response.ok) {
+                dispatch({ type: 'DELETE_DECK', payload: deck._id });
+            } else {
+                console.error('Failed to delete deck: ', response.text());
+            }
+        })
+        .catch(error => console.error('Error:', error));
     };
     
 

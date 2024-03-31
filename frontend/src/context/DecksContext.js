@@ -14,7 +14,7 @@ export const decksReducer = (state, action) => {
             }
         case 'DELETE_DECK':
             return {
-                decks: state.decks.filter((d) => d._id !== action.payload._id)
+                decks: state.decks.filter((d) => d._id !== action.payload)
             }
         default:
             return state

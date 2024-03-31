@@ -66,7 +66,7 @@ const deleteDeck = async (req, res) => {
     // Then, delete the deck itself
     await Deck.deleteOne({ _id: id });
 
-    res.status(200).json({ message: 'Deck and associated cards deleted successfully' });
+    res.status(200).json({ message: 'Deck and associated cards deleted successfully', id });
 };
 
 
