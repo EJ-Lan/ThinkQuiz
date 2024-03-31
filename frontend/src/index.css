@@ -105,3 +105,21 @@ header h1 {
 .error {
   color: red;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.deck-details.adding {
+  animation: fadeIn 1s ease-out;
+}
+
+.deck-details.deleting {
+  animation: fadeOut 1s ease-out;
+}

@@ -1,18 +1,19 @@
-import { useState } from 'react'
-import { useDecksContext } from '../hooks/useDeckContext'
+import { useState } from 'react';
+import { useDecksContext } from '../hooks/useDeckContext';
 
 const DeckForm = () => {
-    const { dispatch } = useDecksContext()
-
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
+    const { dispatch } = useDecksContext();
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
+    const [isAdding, setIsAdding] = useState(false);
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        setIsAdding(true);
 
-        const deck = {name, description}
+        const deck = {name, description};
 
         const response = await fetch('http://localhost:4000/api/decks', {
             method: 'POST',
@@ -21,23 +22,23 @@ const DeckForm = () => {
                 'Content-Type': 'application/json'
             }
         })
-        const json = await response.json()
+        const json = await response.json();
 
         if (!response.ok) {
-            setError(json.error)
-            setEmptyFields(json.emptyFields)
+            setError(json.error);
+            setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
-            setName('')
-            setDescription('')
-            setError(null)
-            setEmptyFields([])
-            dispatch({type: 'CREATE_DECK', payload: json})
+            setName('');
+            setDescription('');
+            setError(null);
+            setEmptyFields([]);
+            dispatch({type: 'CREATE_DECK', payload: json});
         }
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
+        <form className={`create ${isAdding ? 'adding' : ''}`} onSubmit={handleSubmit}>
             <h3>Add a New Deck</h3>
 
             <label>Deck Name:</label>
@@ -61,5 +62,5 @@ const DeckForm = () => {
         </form>
     );
 }
- 
+
 export default DeckForm;
