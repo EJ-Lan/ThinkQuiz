@@ -1,6 +1,9 @@
 # ThinkQuiz
 Quiz Application For Students
 
+# About
+Think Quiz is a web app that enables users to create wuiz decks and cards and study them for any topic
+
 ## Technologies
 1. MongoDB
 2. Express
