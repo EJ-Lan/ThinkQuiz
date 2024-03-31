@@ -22,9 +22,9 @@ const DeckDetails = ({ deck }) => {
     return (
         <div className="deck-details">
             <h4>{deck.name}</h4>
-            <p><strong>Description:</strong>{deck.description}</p>
+            <p><strong>Description:</strong> {deck.description}</p>
             <p>{formatDistanceToNow(new Date(deck.createdAt), { addSuffix: true })}</p>
-            <span className="material-symbol-outlined" onClick={handleClick}>delete</span>
+            <span className="material-symbol-outlined" onClick={handleClick}>Delete</span>
         </div>
     );
 }

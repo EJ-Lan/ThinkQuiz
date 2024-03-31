@@ -12,7 +12,6 @@ const Home = () => {
             const response = await fetch('http://localhost:4000/api/decks');
             if (response.ok) {
                 const text = await response.text();
-                console.log('Server response:', text);
                 try {
                     const json = JSON.parse(text);
                     dispatch({ type: 'SET_DECKS', payload: json });

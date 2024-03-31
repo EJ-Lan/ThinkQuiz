@@ -1,4 +1,5 @@
 const Deck = require('../models/deckModel');
+const Card = require('../models/cardModel');
 const mongoose = require('mongoose');
 
 // GET  all decks
@@ -45,7 +46,7 @@ const createDeck = async (req, res) => {
     }
 };
 
-//  DELETE a deck
+// DELETE a deck
 const deleteDeck = async (req, res) => {
     const { id } = req.params;
 
@@ -63,7 +64,7 @@ const deleteDeck = async (req, res) => {
     await Card.deleteMany({ _id: { $in: deck.cards } });
 
     // Then, delete the deck itself
-    await deck.remove();
+    await Deck.deleteOne({ _id: id });
 
     res.status(200).json({ message: 'Deck and associated cards deleted successfully' });
 };
