@@ -1,4 +1,5 @@
 const Card = require('../models/cardModel');
+const Deck = require('../models/deckModel');
 const mongoose = require('mongoose');
 
 // GET all cards
@@ -44,6 +45,12 @@ const createCard = async (req, res) => {
 
     try {
         const card = await Card.create({question, answer, deck})
+
+        // Find the deck and add the card to it
+        const deckToUpdate = await Deck.findById(deck);
+        deckToUpdate.cards.push(card._id);
+        await deckToUpdate.save();
+
         res.status(200).json(card)
     } catch (error) {
         res.status(400).json({error: error.message})
