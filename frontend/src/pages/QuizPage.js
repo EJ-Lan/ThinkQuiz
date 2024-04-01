@@ -25,7 +25,7 @@ const QuizPage = () => {
                     />
                 </div>
             ) : (
-                <p>No Cards Available</p>
+                <p className="no-cards">No Cards Available</p>
             )}
         </div>
     );
