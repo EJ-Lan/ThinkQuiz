@@ -121,6 +121,9 @@ const cardSchema = new mongoose.Schema({
 
 ### Context
 * `DecksContext.js` a context for decks
+* `CardsContext.js` a context for cards
+
+There are the DecksContext and CardsContext logic
 ```js
 import { createContext, useReducer, useEffect } from 'react'
 
@@ -162,46 +165,58 @@ export const DecksContextProvider = ({ children }) => {
     );
 }
 ```
-* `CardsContext.js` a context for cards
 ```js
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer } from 'react'
 
-export const DecksContext = createContext()
+export const CardsContext = createContext()
 
-export const decksReducer = (state, action) => {
+export const cardsReducer = (state, action) => {
     switch (action.type) {
-        case 'SET_DECKS':
+        case 'SET_CARDS':
             return {
-                decks: action.payload
+                ...state,
+                cards: action.payload
             }
-        case 'CREATE_DECK':
-            return {
-                decks: [action.payload, ...state.decks]
+        case 'CREATE_CARD':
+            const newCard = action.payload;
+            const deckWithNewCard = state.decks.find(deck => deck._id === newCard.deck);
+            if (deckWithNewCard) {
+                deckWithNewCard.cards.push(newCard);
             }
-        case 'DELETE_DECK':
+
             return {
-                decks: state.decks.filter((d) => d._id !== action.payload)
+                ...state,
+                decks: state.decks.map(deck => deck._id === deckWithNewCard?._id ? deckWithNewCard : deck),
+                cards: [newCard, ...state.cards]
+            }
+        case 'DELETE_CARD':
+            const deletedCardId = action.payload;
+            const deckWithDeletedCard = state.decks.find(deck => deck.cards.some(card => card._id === deletedCardId));
+            if (deckWithDeletedCard) {
+                deckWithDeletedCard.cards = deckWithDeletedCard.cards.filter(card => card._id !== deletedCardId);
+            }
+
+            return {
+                ...state,
+                decks: state.decks.map(deck => deck._id === deckWithDeletedCard?._id ? deckWithDeletedCard : deck),
+                cards: state.cards.filter((c) => c._id !== deletedCardId)
             }
         default:
             return state
     }
 }
 
-export const DecksContextProvider = ({ children }) => {
-    const localState = JSON.parse(localStorage.getItem('decks')) || [];
-    const [state, dispatch] = useReducer(decksReducer, {
-        decks: localState
-    });
-
-    useEffect(() => {
-        localStorage.setItem('decks', JSON.stringify(state.decks));
-    }, [state.decks]);
+export const CardsContextProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(cardsReducer, {
+        cards: [],
+        decks: []
+    })
 
     return (
-        <DecksContext.Provider value={{ ...state, dispatch }}>
-            { children }
-        </DecksContext.Provider>
-    );
+        <CardsContext.Provider value={{ ...state, dispatch }}>
+            {children}
+        </CardsContext.Provider>
+    )
 }
 ```
 
