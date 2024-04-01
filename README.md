@@ -1,5 +1,5 @@
 # ThinkQuiz
-Quiz Application For Students
+Quiz Application For Students MERN
 
 # About
 Think Quiz is a web app that enables users to create quiz decks and cards and study them for any topic
