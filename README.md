@@ -106,12 +106,14 @@ const cardSchema = new mongoose.Schema({
 ## Frontend
 
 ### Components
-* `Main.js` is the main page
 * `DeckDetails.js` displays the deck
 * `CardDetails.js` displays the card
 * `DeckForm.js` is a form for the decks
 * `CardForm.js` is a form for the cards
 * `Navbar.js` is the navbar
+* `ButtonSection.js` is the buttons like "quiz"
+* `QuizButtons.js` is the buttons for quiz controls
+* `QuizCards.js` is the card displayed for quiz
 
 ### Hooks
 * `UseDeckContext.js` a hook to use the deck context
@@ -120,6 +122,11 @@ const cardSchema = new mongoose.Schema({
 ### Context
 * `DecksContext.js` a context for decks
 * `CardsContext.js` a context for cards
+
+### Pages
+* `DeckDetailsPage.js` page for showing cards and card form
+* `HomePage.js` a page that shows decks and deck form
+* `QuizPage.js` a page that shows shows the deck cards
 
 ### Testing Frontend
 1. **Component Tests**: Tests to ensure the components render and behave correctly
