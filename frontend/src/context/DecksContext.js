@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useEffect } from 'react'
 
 export const DecksContext = createContext()
 
@@ -22,13 +22,18 @@ export const decksReducer = (state, action) => {
 }
 
 export const DecksContextProvider = ({ children }) => {
+    const localState = JSON.parse(localStorage.getItem('decks')) || [];
     const [state, dispatch] = useReducer(decksReducer, {
-        decks: null
-    })
+        decks: localState
+    });
+
+    useEffect(() => {
+        localStorage.setItem('decks', JSON.stringify(state.decks));
+    }, [state.decks]);
 
     return (
         <DecksContext.Provider value={{ ...state, dispatch }}>
             { children }
         </DecksContext.Provider>
-    )
+    );
 }

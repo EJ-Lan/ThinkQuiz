@@ -9,7 +9,7 @@ const QuizPage = () => {
     const { decks } = useContext(DecksContext);
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-    const deck = decks.find(deck => deck._id === deckId);
+    const deck = decks ? decks.find(deck => deck._id === deckId) : null;
     const cards = deck ? deck.cards : [];
 
     return (

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const ButtonSection = ({ deckId }) => {
-    console.log(deckId); // Log deckId
     return (
         <div className="buttons-section">
             <Link to="/" className="button">Home</Link>
