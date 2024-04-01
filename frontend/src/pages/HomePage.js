@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { useDecksContext } from '../hooks/useDeckContext'
+import { useDecksContext } from '../hooks/useDecksContext'
 
 import DeckDetails from '../components/DeckDetails'
 import DeckForm from '../components/DeckForm'
 
-const Home = () => {
+const HomePage = () => {
     const { decks, dispatch } = useDecksContext()
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const Home = () => {
         fetchDecks();
     }, [dispatch]);
     return ( 
-        <div className="home">
+        <div className="home-page">
             <div className="decks">
                 {decks && decks.length > 0 ? (
                     decks.map(deck => (
@@ -43,4 +43,4 @@ const Home = () => {
      );
 }
  
-export default Home;
+export default HomePage;

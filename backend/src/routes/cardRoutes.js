@@ -15,7 +15,7 @@ router.get('/', getCards);
 // GET a single card
 router.get('/:id', getCard);
 
-// POST a new card (fixed route)
+// POST a new card
 router.post('/', createCard);
 
 // DELETE a card

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDecksContext } from '../hooks/useDeckContext';
+import { useDecksContext } from '../hooks/useDecksContext';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { Link } from 'react-router-dom';
 
 const DeckDetails = ({ deck }) => {
     const { dispatch } = useDecksContext();
@@ -27,6 +28,7 @@ const DeckDetails = ({ deck }) => {
             <p><strong>Description:</strong> {deck.description}</p>
             <p>{formatDistanceToNow(new Date(deck.createdAt), { addSuffix: true })}</p>
             <span className="material-symbol-outlined" onClick={handleClick}>Delete</span>
+            <Link to={`/decks/${deck._id}`} className="view-details">View Details</Link>
         </div>
     );
 }

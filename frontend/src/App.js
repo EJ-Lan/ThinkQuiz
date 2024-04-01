@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Home from './pages/Home'
+import HomePage from './pages/HomePage'
+import DeckDetailsPage from './pages/DeckDetailsPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home />}
+              element={<HomePage />}
+            />
+            <Route
+              path="/decks/:deckId"
+              element={<DeckDetailsPage />}
             />
           </Routes>
         </div>

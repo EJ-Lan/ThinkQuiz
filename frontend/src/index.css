@@ -136,3 +136,13 @@ header h1 {
   font-size: 1.5em;
   color: #333;
 }
+
+.view-details {
+  color: blue;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.view-details:visited {
+  color: blue;
+}

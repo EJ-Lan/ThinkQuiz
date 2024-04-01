@@ -15,7 +15,7 @@ router.get('/', getDecks);
 // GET a single deck
 router.get('/:id', getDeck);
 
-// POST a new deck (fixed route)
+// POST a new deck
 router.post('/', createDeck);
 
 // DELETE a deck

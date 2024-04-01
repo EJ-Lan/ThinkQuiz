@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { DecksContextProvider } from './context/DecksContext';    
+import { DecksContextProvider } from './context/DecksContext'; 
+import { CardsContextProvider } from './context/CardsContext';   
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CardsContextProvider>
     <DecksContextProvider>
       <App />
     </DecksContextProvider>
+    </CardsContextProvider>
   </React.StrictMode>
 );
 
