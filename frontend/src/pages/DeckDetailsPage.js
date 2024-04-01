@@ -36,7 +36,7 @@ const DeckDetailsPage = () => {
                     </div>
                 )}
             </div>
-            <CardForm deckId={deckId} /> {/* Pass deckId as a prop */}
+            <CardForm deckId={deckId} />
         </div>
     );
 }

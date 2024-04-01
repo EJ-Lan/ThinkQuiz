@@ -26,7 +26,7 @@ const HomePage = () => {
         fetchDecks();
     }, [dispatch]);
     return ( 
-        <div className="home-page">
+        <div className="home">
             <div className="decks">
                 {decks && decks.length > 0 ? (
                     decks.map(deck => (
