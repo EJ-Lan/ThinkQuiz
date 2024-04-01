@@ -15,7 +15,7 @@ const QuizPage = () => {
     return (
         <div>
             {cards.length > 0 ? (
-                <div>
+                <div className="quiz-page">
                     <QuizCards card={cards[currentCardIndex]} />
                     <QuizButtons
                         currentCardIndex={currentCardIndex}

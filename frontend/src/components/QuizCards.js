@@ -4,9 +4,9 @@ const QuizCards = ({ card }) => {
     const [showAnswer, setShowAnswer] = useState(false);
 
     return (
-        <div>
+        <div className="card">
             {showAnswer ? <p>Answer: {card.answer}</p> : <p>Question: {card.question}</p>}
-            <button onClick={() => setShowAnswer(!showAnswer)}>
+            <button className="toggle-btn" onClick={() => setShowAnswer(!showAnswer)}>
                 {showAnswer ? 'Show Question' : 'Reveal Answer'}
             </button>
         </div>

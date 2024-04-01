@@ -4,14 +4,14 @@ const QuizButtons = ({ currentCardIndex, setCurrentCardIndex, cardsLength, deckI
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className="button-container">
             {currentCardIndex > 0 && (
-                <button onClick={() => setCurrentCardIndex(currentCardIndex - 1)}>Previous</button>
+                <button className="nav-btn" onClick={() => setCurrentCardIndex(currentCardIndex - 1)}>Previous</button>
             )}
             {currentCardIndex < cardsLength - 1 && (
-                <button onClick={() => setCurrentCardIndex(currentCardIndex + 1)}>Next</button>
+                <button className="nav-btn" onClick={() => setCurrentCardIndex(currentCardIndex + 1)}>Next</button>
             )}
-            <button onClick={() => navigate(`/decks/${deckId}`)}>Quit</button>
+            <button className="quit-btn" onClick={() => navigate(`/decks/${deckId}`)}>Quit</button>
         </div>
     );
 };
