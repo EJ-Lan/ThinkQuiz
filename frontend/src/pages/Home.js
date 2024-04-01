@@ -28,9 +28,15 @@ const Home = () => {
     return ( 
         <div className="home">
             <div className="decks">
-                {decks && decks.map(deck => (
-                    <DeckDetails deck={deck} key={deck._id} />
-                ))}
+                {decks && decks.length > 0 ? (
+                    decks.map(deck => (
+                        <DeckDetails deck={deck} key={deck._id} />
+                    ))
+                ) : (
+                    <div className="no-decks">
+                        <h2>There Are No Decks</h2>
+                    </div>
+                )}
             </div>
             <DeckForm />
         </div>
