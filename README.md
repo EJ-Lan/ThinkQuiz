@@ -14,7 +14,7 @@ Think Quiz is a web app that enables users to create quiz decks and cards and st
 * Users can create and delete quiz decks
 * Users can create, update, and delete quiz cards within decks
 * Users may quiz themselves with the flashcards they made
-* User accounts to login/signup
+* User accounts to login/signup using jwt
 
 ## Backend
 
