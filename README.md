@@ -1,5 +1,5 @@
 # ThinkQuiz
-Quiz Application For Students using MERN stack
+Quiz Application For Students created using MERN stack
 
 # About
 Think Quiz is a web app that enables users to create quiz decks and cards and study them for any topic
